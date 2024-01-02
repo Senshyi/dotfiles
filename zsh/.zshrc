@@ -77,11 +77,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git
-  brew
-  yarn
-)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -110,17 +106,27 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
+bindkey -s ^f "~/scripts/tmux-sessionizer\n"
+bindkey -s ^a "~/scripts/awslog\n"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export PATH="$PATH:/Users/jan/Library/Python/3.8/bin"
-bindkey -s ^f "~/scripts/tmux-sessionizer\n"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # bun completions
-[ -s "/Users/jan/.bun/_bun" ] && source "/Users/jan/.bun/_bun"
+[ -s "/Users/machacek/.bun/_bun" ] && source "/Users/machacek/.bun/_bun"
 
-export GOPATH="$HOME/go"
-export PATH=$PATH:$GOPATH/bin
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+
+export PATH="$HOME/go/bin:$PATH"
+
+# export TERM='alacritty'
+export EDITOR='nvim'
+export VISUAL='nvim'
 
 eval "$(atuin init zsh)"
