@@ -2,13 +2,13 @@
 
 managed by stew
 
-- run `stew <folder>` to symlink root dir
-- for .config run `stew <folder> --target=$HOME/.config` (eg. for nvim)
+- run `stow <folder>` to symlink root dir
+- for .config run `stow <folder> --target=$HOME/.config` (eg. for nvim)
 
 tools:
 - atuin 
 - ripgrep
-- stew
+- stow
 - yabai + skhd
 - lazygit
 
