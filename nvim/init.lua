@@ -324,6 +324,8 @@ vim.o.relativenumber = true
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 
+vim.filetype.add({ extension = { templ = "templ" } })
+
 -- [[ Basic Keymaps ]]
 
 -- Keymaps for better default experience
@@ -587,7 +589,8 @@ local servers = {
   -- pyright = {},
   -- rust_analyzer = {},
   -- tsserver = {},
-  -- html = { filetypes = { 'html', 'twig', 'hbs'} },
+  html = { filetypes = { 'html', 'templ' } },
+  htmx = { filetypes = { 'html', 'templ' } },
 
   lua_ls = {
     Lua = {
