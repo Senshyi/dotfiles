@@ -8,7 +8,22 @@ return {
       {
         "<leader>cf",
         function()
-          require("conform").format({ lsp_fallback = "always" })
+          if vim.bo.filetype == "templ" then
+            local bufnr = vim.api.nvim_get_current_buf()
+            local filename = vim.api.nvim_buf_get_name(bufnr)
+            local cmd = "templ fmt " .. vim.fn.shellescape(filename)
+
+            vim.fn.jobstart(cmd, {
+              on_exit = function()
+                -- Reload the buffer only if it's still the current buffer
+                if vim.api.nvim_get_current_buf() == bufnr then
+                  vim.cmd('e!')
+                end
+              end,
+            })
+          else
+            require("conform").format({ lsp_fallback = "always" })
+          end
         end,
         mode = { "n", "v" },
         desc = "Format Code",
@@ -32,6 +47,7 @@ return {
           graphql = { "prettier" },
           lua = { "stylua" },
           python = { "isort", "black" },
+          templ = { "templ" }
         },
       })
     end,
