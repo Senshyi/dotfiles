@@ -113,7 +113,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim',  opts = {} },
+  { 'folke/which-key.nvim', opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -190,10 +190,10 @@ require('lazy').setup({
   },
 
   {
-    "rebelot/kanagawa.nvim",
+    "rose-pine/neovim",
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme('kanagawa')
+      vim.cmd.colorscheme('rose-pine')
     end
   },
 
@@ -204,7 +204,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'kanagawa',
+        theme = 'rose-pine',
         component_separators = '|',
         section_separators = '',
       },
@@ -221,7 +221,7 @@ require('lazy').setup({
   },
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  { 'numToStr/Comment.nvim',  opts = {} },
 
   -- Fuzzy Finder (files, lsp, etc)
   {
