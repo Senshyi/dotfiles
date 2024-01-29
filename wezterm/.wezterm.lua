@@ -8,5 +8,5 @@ return {
 	enable_scroll_bar = false,
 	scrollback_lines = 10500,
 	min_scroll_bar_height = "1cell",
-	window_decorations = "RESIZE"
+	window_decorations = "RESIZE",
 }
