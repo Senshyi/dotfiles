@@ -72,7 +72,6 @@ return {
         bashls = {},
         -- clangd = {},
         cssls = {},
-        gleam = {},
         graphql = {},
         html = {},
         jsonls = {},
@@ -104,6 +103,7 @@ return {
           },
         },
         yamlls = {},
+        gopls = {},
       }
 
       -- Default handlers for LSP
