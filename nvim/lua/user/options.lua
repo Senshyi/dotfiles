@@ -70,4 +70,3 @@ vim.opt.scrolloff = 8
 
 -- Place a column line
 vim.opt.colorcolumn = "80"
-
