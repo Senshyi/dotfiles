@@ -45,7 +45,10 @@ vim.keymap.set('n', '<leader>ss', function()
   require('telescope.builtin').spell_suggest(require('telescope.themes').get_dropdown { previewer = false })
 end, { desc = '[S]earch [S]pelling suggestions' })
 
-vim.keymap.set('n', '<leader>gb', '<cmd>Gitsigns toggle_current_line_blame<cr>', { desc = '[G]it [B]lame' })
+-- git
+vim.keymap.set('n', '<leader>gb', require('gitsigns').toggle_current_line_blame, { desc = '[G]it [B]lame' })
+vim.keymap.set('n', '<leader>gd', require('gitsigns').diffthis, { desc = '[G]it [D]iff' })
+vim.keymap.set('n', '<leader>ghp', require('gitsigns').preview_hunk, { desc = '[G]it [H]unk [P]review' })
 vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = '[G]it [F]iles' })
 
 M.map_lsp_keybinds = function(buffer_number)
