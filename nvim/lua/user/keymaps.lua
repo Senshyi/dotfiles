@@ -7,8 +7,8 @@ vim.keymap.set('n', '<leader>e', require('oil').toggle_float, { desc = 'toggle e
 vim.keymap.set('n', '<leader>S', require('spectre').toggle, { desc = 'toggle spectre' })
 
 -- fancy keybinds
-vim.keymap.set('v', '<C-j>', ":m '>+1<CR>gv=gv")
-vim.keymap.set('v', '<C-k>', ":m '<-2<CR>gv=gv")
+vim.keymap.set('v', '<C-K>', ":m '<-2<CR>gv=gv")
+vim.keymap.set('v', '<C-J>', ":m '>+1<CR>gv=gv")
 
 -- Center buffer while navigating
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
