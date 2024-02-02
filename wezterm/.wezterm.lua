@@ -9,4 +9,5 @@ return {
 	scrollback_lines = 10500,
 	min_scroll_bar_height = "1cell",
 	window_decorations = "RESIZE",
+	force_reverse_video_cursor = true,
 }
