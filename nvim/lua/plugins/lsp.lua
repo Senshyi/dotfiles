@@ -89,6 +89,9 @@ return {
         pyright = {},
         solidity = {},
         sqlls = {},
+        templ = {
+          filetypes = { 'templ' },
+        },
         tailwindcss = {
           -- filetypes = { "reason" },
         },
@@ -152,6 +155,23 @@ return {
         }
       end
 
+      require('lspconfig').clangd.setup {
+        capabilities = {
+          offsetEncoding = { 'utf-16' },
+        },
+        cmd = {
+          'clangd',
+          '--background-index',
+          '--clang-tidy',
+          '--header-insertion=iwyu',
+          '--completion-style=detailed',
+          '--function-arg-placeholders',
+          '--fallback-style=webkit',
+        },
+        handlers = default_handlers,
+        on_attach = on_attach,
+      }
+
       -- Congifure LSP linting, formatting, diagnostics, and code actions
       local formatting = null_ls.builtins.formatting
       local diagnostics = null_ls.builtins.diagnostics
@@ -163,7 +183,6 @@ return {
           -- formatting
           formatting.prettierd,
           formatting.stylua,
-          formatting.ocamlformat,
 
           -- diagnostics
           diagnostics.eslint_d.with {
