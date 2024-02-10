@@ -7,8 +7,8 @@ vim.keymap.set('n', '<leader>e', require('oil').toggle_float, { desc = 'toggle e
 vim.keymap.set('n', '<leader>S', require('spectre').toggle, { desc = 'toggle spectre' })
 
 -- fancy keybinds
-vim.keymap.set('v', '<C-K>', ":m '<-2<CR>gv=gv")
-vim.keymap.set('v', '<C-J>', ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', '<C-k>', ":m '<-2<CR>gv=gv")
+vim.keymap.set('v', '<C-j>', ":m '>+1<CR>gv=gv")
 
 -- Center buffer while navigating
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
@@ -79,6 +79,16 @@ end)
 vim.keymap.set('n', '<leader>5', function()
   harpoon:list():select(5)
 end)
+
+--tmux navigator
+local nvim_tmux_nav = require 'nvim-tmux-navigation'
+
+vim.keymap.set('n', '<C-h>', nvim_tmux_nav.NvimTmuxNavigateLeft)
+vim.keymap.set('n', '<C-j>', nvim_tmux_nav.NvimTmuxNavigateDown)
+vim.keymap.set('n', '<C-k>', nvim_tmux_nav.NvimTmuxNavigateUp)
+vim.keymap.set('n', '<C-l>', nvim_tmux_nav.NvimTmuxNavigateRight)
+vim.keymap.set('n', '<C-\\>', nvim_tmux_nav.NvimTmuxNavigateLastActive)
+vim.keymap.set('n', '<C-Space>', nvim_tmux_nav.NvimTmuxNavigateNext)
 
 M.map_lsp_keybinds = function(buffer_number)
   vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { desc = 'LSP: [R]e[N]ame', buffer = buffer_number })
