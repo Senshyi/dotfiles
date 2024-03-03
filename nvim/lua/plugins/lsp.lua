@@ -92,9 +92,9 @@ return {
         templ = {
           filetypes = { 'templ' },
         },
-        tailwindcss = {
-          -- filetypes = { "reason" },
-        },
+        -- tailwindcss = {
+        --   filetypes = { 'templ' },
+        -- },
         tsserver = {
           settings = {
             experimental = {
@@ -172,6 +172,13 @@ return {
         on_attach = on_attach,
       }
 
+      require('lspconfig').tailwindcss.setup {
+        on_attach = on_attach,
+        capabilities = default_capabilities,
+        filetypes = { 'templ', 'astro', 'javascript', 'typescript', 'react' },
+        init_options = { userLanguages = { templ = 'html' } },
+      }
+      vim.filetype.add { extension = { templ = 'templ' } }
       -- Congifure LSP linting, formatting, diagnostics, and code actions
       local formatting = null_ls.builtins.formatting
       local diagnostics = null_ls.builtins.diagnostics
@@ -181,7 +188,7 @@ return {
         border = 'rounded',
         sources = {
           -- formatting
-          formatting.prettierd,
+          formatting.prettier,
           formatting.stylua,
 
           -- diagnostics
