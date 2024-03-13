@@ -71,3 +71,6 @@ vim.opt.scrolloff = 8
 
 -- Place a column line
 vim.opt.colorcolumn = '80'
+
+-- Obsidian needs it
+vim.opt.conceallevel = 2

@@ -90,6 +90,18 @@ vim.keymap.set('n', '<C-l>', nvim_tmux_nav.NvimTmuxNavigateRight)
 vim.keymap.set('n', '<C-\\>', nvim_tmux_nav.NvimTmuxNavigateLastActive)
 vim.keymap.set('n', '<C-Space>', nvim_tmux_nav.NvimTmuxNavigateNext)
 
+-- Obsidian
+-- vim.keymap.set('n', '<leader>on', require('obsidian').new_note, { desc = '[O]bsidian [N]ew note' })
+-- vim.keymap.set('n', '<leader>of', require('obsidian').find_note, { desc = '[O]bsidian [F]ind note' })
+vim.keymap.set('n', '<leader>ot', '<cmd>ObsidianTemplate<CR>', { desc = '[O]bsidian [T]templates' })
+vim.keymap.set('n', '<leader>ol', '<cmd>ObsidianLinks<CR>', { desc = '[O]bsidian [L]inks' })
+vim.keymap.set('n', '<leader>ob', '<cmd>ObsidianBacklinks<CR>', { desc = '[O]bsidian [B]acklinks' })
+vim.keymap.set('n', '<leader>os', '<cmd>ObsidianSearch<CR>', { desc = '[O]bsidian [S]earch' })
+vim.keymap.set('n', '<leader>oo', '<cmd>ObsidianOpen<CR>', { desc = '[O]bsidian [O]pen' })
+vim.keymap.set('n', '<leader>oq', '<cmd>ObsidianQuickSwitch<CR>', { desc = '[O]bsidian [Q]uick switch' })
+
+vim.keymap.set('n', '<leader>ge', 'iif err != nil {<CR>  return err<CR>}<Esc>O<Esc>', { desc = '[G]o [E]rror' })
+
 M.map_lsp_keybinds = function(buffer_number)
   vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { desc = 'LSP: [R]e[N]ame', buffer = buffer_number })
   vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = 'LSP: [C]ode [A]ction', buffer = buffer_number })
