@@ -50,6 +50,9 @@ vim.keymap.set('n', '<leader>gb', require('gitsigns').toggle_current_line_blame,
 vim.keymap.set('n', '<leader>gd', require('gitsigns').diffthis, { desc = '[G]it [D]iff' })
 vim.keymap.set('n', '<leader>ghp', require('gitsigns').preview_hunk, { desc = '[G]it [H]unk [P]review' })
 vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = '[G]it [F]iles' })
+vim.keymap.set('n', '<leader>go', require('neogit').open, { desc = '[G]it [O]pen' })
+vim.keymap.set('n', '<leader>gc', '<cmd>Neogit Commit<cr>', { desc = '[G]it [C]ommit' })
+vim.keymap.set('n', '<leader>gp', '<cmd>Neogit Pull<cr>', { desc = '[G]it [P]ull' })
 
 local harpoon = require 'harpoon'
 
