@@ -96,6 +96,35 @@ return {
 
           vim.keymap.set("n", "<space>cr", vim.lsp.buf.rename, { desc = "[C]ode [R]ename", buffer = 0 })
           vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, { desc = "[C]ode [A]ction", buffer = 0 })
+
+          if client and client.server_capabilities.documentHighlightProvider then
+            local highlight_autogrep = vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
+            vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+              buffer = bufnr,
+              group = highlight_autogrep,
+              callback = vim.lsp.buf.document_highlight,
+            })
+
+            vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+              buffer = bufnr,
+              group = highlight_autogrep,
+              callback = vim.lsp.buf.clear_references,
+            })
+
+            vim.api.nvim_create_autocmd("LspDetach", {
+              group = vim.api.nvim_create_augroup("lsp-detach", { clear = true }),
+              callback = function(event2)
+                vim.lsp.buf.clear_references()
+                vim.api.nvim_clear_autocmds { group = "lsp-highlight", buffer = event2.buf }
+              end,
+            })
+          end
+
+          if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
+            vim.keymap.set("n", "<leader>th", function()
+              vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+            end, { desc = "[T]oggle Inlay [H]ints" })
+          end
         end,
       })
 
