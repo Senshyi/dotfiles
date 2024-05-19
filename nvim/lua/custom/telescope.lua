@@ -16,18 +16,20 @@ pcall(require("telescope").load_extension, "smart_history")
 
 local builtin = require "telescope.builtin"
 
-vim.keymap.set("n", "<space>fd", builtin.find_files)
-vim.keymap.set("n", "<space>fh", builtin.help_tags)
-vim.keymap.set("n", "<space>fg", builtin.live_grep)
-vim.keymap.set("n", "<space>/", builtin.current_buffer_fuzzy_find)
+vim.keymap.set("n", "<space>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
+vim.keymap.set("n", "<space>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
+vim.keymap.set("n", "<space>sg", builtin.live_grep, { desc = "[S]earch [G]rep" })
+vim.keymap.set("n", "<space>/", builtin.current_buffer_fuzzy_find, { desc = "fuzzy find current buffer" })
 
-vim.keymap.set("n", "<space>gw", builtin.grep_string)
+vim.keymap.set("n", "<space>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
 
-vim.keymap.set("n", "<space>fa", function()
+-- probably will not need
+vim.keymap.set("n", "<space>sa", function()
   ---@diagnostic disable-next-line: param-type-mismatch
   builtin.find_files { cwd = vim.fs.joinpath(vim.fn.stdpath "data", "lazy") }
-end)
+end, { desc = "search lazy" })
 
+-- need to fix it :(
 vim.keymap.set("n", "<space>en", function()
   builtin.find_files { cwd = vim.fn.stdpath "config" }
 end)
