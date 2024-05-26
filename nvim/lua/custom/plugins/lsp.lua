@@ -28,15 +28,6 @@ return {
         bashls = true,
         gopls = true,
         lua_ls = true,
-        rust_analyzer = {
-          settings = {
-            ["rust-analyzer"] = {
-              checkOnSave = {
-                command = "clippy",
-              },
-            },
-          },
-        },
         templ = true,
         cssls = true,
         -- TODO: disable formatting

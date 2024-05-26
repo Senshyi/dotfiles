@@ -28,8 +28,3 @@ vim.keymap.set("n", "<space>sa", function()
   ---@diagnostic disable-next-line: param-type-mismatch
   builtin.find_files { cwd = vim.fs.joinpath(vim.fn.stdpath "data", "lazy") }
 end, { desc = "search lazy" })
-
--- need to fix it :(
-vim.keymap.set("n", "<space>en", function()
-  builtin.find_files { cwd = vim.fn.stdpath "config" }
-end)

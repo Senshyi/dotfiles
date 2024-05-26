@@ -28,6 +28,7 @@ opt.list = true
 opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 opt.signcolumn = "yes"
 opt.hlsearch = true
+opt.wrap = false
 
 -- because I close nvim too many times on accident
 opt.shada = { "'10", "<0", "s10", "h" }
