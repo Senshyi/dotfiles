@@ -20,6 +20,7 @@ vim.keymap.set("n", "<space>sf", builtin.find_files, { desc = "[S]earch [F]iles"
 vim.keymap.set("n", "<space>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
 vim.keymap.set("n", "<space>sg", builtin.live_grep, { desc = "[S]earch [G]rep" })
 vim.keymap.set("n", "<space>/", builtin.current_buffer_fuzzy_find, { desc = "fuzzy find current buffer" })
+vim.keymap.set("n", "<space>sr", builtin.lsp_references, { desc = "[S]earch [R]eference" })
 
 vim.keymap.set("n", "<space>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
 
