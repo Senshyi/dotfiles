@@ -32,6 +32,10 @@ return {
         cssls = true,
         -- TODO: disable formatting
         tsserver = true,
+        tailwindcss = true,
+        graphql = true,
+        html = true,
+        bufls = true,
 
         jsonls = {
           settings = {
@@ -130,6 +134,7 @@ return {
       require("conform").setup {
         formatters_by_ft = {
           lua = { "stylua" },
+          proto = { "buf" },
         },
       }
       vim.api.nvim_create_autocmd("BufWritePre", {

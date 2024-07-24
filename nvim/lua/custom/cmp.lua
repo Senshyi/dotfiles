@@ -5,12 +5,22 @@ local lspkind = require "lspkind"
 lspkind.init {}
 
 local cmp = require "cmp"
+local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+
+require("nvim-autopairs").setup()
+
+-- Integrate nvim-autopairs with cmp
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+
+-- Load snippets
+require("luasnip.loaders.from_vscode").lazy_load()
 
 cmp.setup {
   sources = {
     { name = "nvim_lsp" },
     { name = "path" },
     { name = "buffer" },
+    { name = "luasnip" },
   },
   mapping = {
     ["<C-n>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
