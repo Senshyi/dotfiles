@@ -1,0 +1,49 @@
+echo "loading yabai stuff"
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
+yabai -m space 1 --label web
+yabai -m space 2 --label nvim
+yabai -m space 3 --label brain
+yabai -m space 4 --label music
+yabai -m space 5 --label discord
+yabai -m space 6 --label misc
+
+# borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0 &
+
+yabai -m config layout bsp
+
+yabai -m config window_placement second_child
+yabai -m config window_border on
+yabai -m config active_window_border_color 0xFF88C0D0 
+yabai -m config normal_window_border_color 0xff555555
+
+# padding
+yabai -m config top_padding 0
+yabai -m config bottom_padding 0
+yabai -m config left_padding 0
+yabai -m config right_padding 0
+yabai -m config window_gap 0
+
+#mouse settings
+
+yabai -m config mouse_follows_focus on
+
+yabai -m config mouse_modifier alt
+yabai -m config mouse_action1 move
+yabai -m config mouse_action2 resize
+
+yabai -m config mouse_drop_action swap
+
+# Disable specific apps from being managed by yabai
+yabai -m rule --add app="^zoom.us$" manage=off
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Calculator$" manage=off
+yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^1Password 7$" manage=off
+yabai -m rule --add title="^Software Update$" manage=off
+yabai -m rule --add app="^App Store$" manage=off
+yabai -m rule --add app="^Activity Monitor$" manage=off
+yabai -m rule --add app="^Dictionary$" manage=off
+yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app="^System Information$" manage=off
