@@ -36,6 +36,7 @@ return {
         graphql = true,
         html = true,
         bufls = true,
+        marksman = true,
 
         jsonls = {
           settings = {
@@ -135,6 +136,8 @@ return {
         formatters_by_ft = {
           lua = { "stylua" },
           proto = { "buf" },
+          javascript = { "prettierd" },
+          typescript = { "prettierd" },
         },
       }
       vim.api.nvim_create_autocmd("BufWritePre", {
