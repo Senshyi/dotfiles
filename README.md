@@ -14,5 +14,5 @@ tools:
 - yazi
 - zoxide
 - starship
-
+- carapace
 
