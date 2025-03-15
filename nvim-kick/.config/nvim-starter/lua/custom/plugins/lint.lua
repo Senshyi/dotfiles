@@ -1,5 +1,4 @@
 return {
-
   { -- Linting
     'mfussenegger/nvim-lint',
     event = { 'BufReadPre', 'BufNewFile' },
@@ -9,6 +8,7 @@ return {
         markdown = { 'markdownlint' },
         vue = { 'eslint_d' },
         typescript = { 'eslint_d' },
+        json = { 'jsonlint' },
       }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
@@ -23,7 +23,7 @@ return {
       --   dockerfile = { "hadolint" },
       --   inko = { "inko" },
       --   janet = { "janet" },
-      --   json = { "jsonlint" },
+      -- json = { "jsonlint" },
       --   markdown = { "vale" },
       --   rst = { "vale" },
       --   ruby = { "ruby" },
